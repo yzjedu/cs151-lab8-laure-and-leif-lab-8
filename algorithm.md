@@ -9,14 +9,14 @@
 1. create the variable dice_1 and set it equal to a random integer between 1 and 6
 2. create the variable dice_2 and set it equal to a random integer between 1 and 6
 3. create the variable dice_sum and set it equal to dice_1 and dice_2 added together
-4. return dice_sum
+4. dice_sum as an integer, represents the sum of dice from one simulated roll
 
 -----------------------
 
 * Purpose: creates a list that holds the sum of each dice roll and how many times a certain sum is rolled
 * Name: get_dice_sum_list
-* Params: roll_number
-* Return: dice_sum_list
+* Params: roll_number (makes sure the list stores the right number of values)
+* Return: dice_sum_list as a list, represents the number of times a certain sum was rolled
 * Algorithm:
 1. set variable count equal to 0
 2. initialize the list dice_sum_list with 11 values of 0 as a placeholder
@@ -30,7 +30,7 @@
 
 * Purpose: displays the results of the dice rolls to the user as a chart of asterisks
 * Name: output_chart
-* Params: roll_number, dice_sum_list
+* Params: roll_number (tells the user how many times the dice was rolled), dice_sum_list (allows data from this list to be accessed and turned into a chart)
 * Return: none
 * Algorithm:
 1. output "Rolling (roll_number) pairs of dice to the user

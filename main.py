@@ -12,7 +12,7 @@ import random
 #Purpose: Simulates rolling two dice and finding the sum
 #Name: calc_dice_sum
 #Params: none
-#Return: dice_sum
+#Return: dice_sum as an integer, represents the sum of dice from one simulated roll
 def calc_dice_sum():
     dice_1 = random.randint(1, 6)
     dice_2 = random.randint(1, 6)
@@ -21,8 +21,8 @@ def calc_dice_sum():
 
 #Purpose: creates a list that holds the sum of each dice roll and how many times a certain sum is rolled
 #Name: get_dice_sum_list
-#Params: roll_number
-#Return: dice_sum_list
+#Params: roll_number (makes sure the list stores the right number of values)
+#Return: dice_sum_list as a list, represents the number of times a certain sum was rolled
 def get_dice_sum_list(roll_number):
     count = 0
     dice_sum_list = [0] * 11
@@ -37,7 +37,7 @@ def get_dice_sum_list(roll_number):
 
 #Purpose: displays the results of the dice rolls to the user as a chart of asterisks
 #Name: output_chart
-#Params: roll_number, dice_sum_list
+#Params: roll_number (tells the user how many times the dice was rolled), dice_sum_list (allows data from this list to be accessed and turned into a chart)
 #Return: none
 def output_chart(roll_number, dice_sum_list):
     print('Rolling', roll_number, 'pairs of dice')
