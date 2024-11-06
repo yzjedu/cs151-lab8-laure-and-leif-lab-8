@@ -49,14 +49,18 @@ def output_chart(roll_number, dice_sum_list):
 #Params: none
 #Return: none
 def main():
+    passthru = False
+
     print('Welcome to the dice simulation program!')
 
-    #finds the number of times the user would like to roll the dice
-    roll_number = int(input('How many times would you like to roll the pair of dice as an integer?'))
-
-    #error checking for finding the roll number
-    while roll_number <= 0:
-        roll_number = int(input('Please enter the value as a positive integer.'))
+    # finds the number of times the user would like to roll the dice
+    while not passthru:
+        roll_number = input('How many times would you like to roll the pair of dice as an integer?')
+        if not roll_number.isdigit():
+            print('This is an invalid input. Your answer must be a positive whole digit')
+        else:
+            roll_number = int(roll_number)
+            passthru = True
 
     #call function to simulate dice rolls
     calc_dice_sum()
