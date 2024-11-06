@@ -1,30 +1,73 @@
+# Programmers: Laure Patera, Leif Labianca
+# Course: CS151, Dr. Zee
+# Due Date: 11/7/24
+# Programming Assignment: Lab 08
+# Problem Statement: Program shows distribution of results of dice rolls
+# Data In: number of times the user wishes to roll the dice
+# Data Out: chart of sums of dice rolls
+# Credits: readme file and examples shown in class
 
 import random
 
+#Purpose: Simulates rolling two dice and finding the sum
+#Name: calc_dice_sum
+#Params: none
+#Return: dice_sum
 def calc_dice_sum():
-    dice_sum = random.randint(2, 12)
+    dice_1 = random.randint(1, 6)
+    dice_2 = random.randint(1, 6)
+    dice_sum = dice_1 + dice_2
     return dice_sum
 
+#Purpose: creates a list that holds the sum of each dice roll and how many times a certain sum is rolled
+#Name: get_dice_sum_list
+#Params: roll_number
+#Return: dice_sum_list
 def get_dice_sum_list(roll_number):
     count = 0
-    dice_sum_list = []
+    dice_sum_list = [0] * 11
     while count <= roll_number:
-        dice_sum_list = [].append(calc_dice_sum())
+        dice_sum = calc_dice_sum()
+
+        #tracks the number of times that a certain dice sum is rolled
+        dice_sum_list[dice_sum - 2] +=1
+
         count += 1
     return dice_sum_list
 
+#Purpose: displays the results of the dice rolls to the user as a chart of asterisks
+#Name: output_chart
+#Params: roll_number, dice_sum_list
+#Return: none
 def output_chart(roll_number, dice_sum_list):
     print('Rolling', roll_number, 'pairs of dice')
     print(dice_sum_list)
     print('Sum of 02:', '*'*dice_sum_list[0], '\nSum of 03:','*'*dice_sum_list[1], '\nSum of 04:','*'*dice_sum_list[2], '\nSum of 05:', '*'*dice_sum_list[3], '\nSum of 06:', '*'*dice_sum_list[4], '\nSum of 07:', '*'*dice_sum_list[5], '\nSum of 08:', '*'*dice_sum_list[6], '\nSum of 09:','*'*dice_sum_list[7], '\nSum of 10:','*'*dice_sum_list[8], '\nSum of 11:','*'*dice_sum_list[9], '\nSum of 12:', '*'*dice_sum_list[10])
 
+#Purpose: main function
+#Name: main
+#Params: none
+#Return: none
 def main():
     print('Welcome to the dice simulation program!')
-    roll_number = int(input('How many times would you like to roll the pair of dice?'))
+
+    #finds the number of times the user would like to roll the dice
+    roll_number = int(input('How many times would you like to roll the pair of dice as an integer?'))
+
+    #error checking for finding the roll number
     while roll_number <= 0:
-        roll_number = input('How many times would you like to roll the pair of dice?')
+        roll_number = int(input('Please enter the value as a positive integer.'))
+
+    #call function to simulate dice rolls
     calc_dice_sum()
+
+    #call function to create a list that will store the results of each dice roll
     dice_sum_list = get_dice_sum_list(roll_number)
+
+    #call function to display results to user as a chart
     output_chart(roll_number, dice_sum_list)
+
+    #exit message
+    print('Thank you for using this program!')
 
 main()
